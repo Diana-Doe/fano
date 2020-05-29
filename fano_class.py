@@ -2,6 +2,7 @@ import sys
 import pandas as pd
 
 class Fano:
+    ''' Class for the Fano method representation '''
     def __init__(self):
         '''
         Initializes names, probabilities, partitions, codes
@@ -16,10 +17,14 @@ class Fano:
         :return:
         '''
 
-        for i in range(len(self.names)):
+        for _ in range(len(self.names)):
             self.code.append('')
 
         def recurse(start, finish):
+            '''
+            Auxiliary recursion for function 'coding'
+            :return:
+            '''
             if finish - start == 1:
                 return
 
@@ -37,6 +42,12 @@ class Fano:
 
     @staticmethod
     def divide(probs):
+        '''
+        Return index in the list from which
+        will be 1 (before this index will be 0).
+        (Division the list in half)
+        :return: int
+        '''
         mid = sum(probs) / 2
         summ = probs[0]
         i = 1
